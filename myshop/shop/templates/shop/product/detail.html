@@ -15,12 +15,12 @@
             {{ product.description|linebreaks }}
          </div>
         <br>
-        <!--
-        <form action="{#% url 'cart:cart_add' product.id %}" method="post" style="margin-top: 10px;">
-            <h5>{#{ cart_product_form }}
-            {#% csrf_token %}
+
+        <form action="{% url 'cart:cart_add' product.id %}" method="post" style="margin-top: 10px;">
+            <h5>{{ cart_product_form }}
+            {% csrf_token %}
             <input class="btn btn-outline-dark mt-auto" type="submit" value="Add to cart"></h5>
         </form>
-        -->
+
     </div>
 {% endblock %}

@@ -34,26 +34,24 @@
                             </ul>
                         </li>
                     </ul>
-                    <!--
                     <form class="d-flex">
-                       {#% with total_items=cart|length %}
-                            {#% if cart|length > 0 %}
-                        <button class="btn btn-outline-dark" type="submit">
-                            <i class="bi-cart-fill me-1"></i>
+                       {% with total_items=cart|length %}
+                            {% if cart|length > 0 %}
+                            <button class="btn btn-outline-dark" type="submit">
+                                <i class="bi-cart-fill me-1"></i>
                             Your cart:
                             <span class="badge bg-dark text-white ms-1 rounded-pill">
-                               <a href="{#% url 'cart:cart_detail' %}">
-                                    {#{ total_items }} item{#{ total_items|pluralize }},
-                                   ${#{ cart.get_total_price }}
+                               <a href="{% url 'cart:cart_detail' %}">
+                                    {{ total_items }} item{{ total_items|pluralize }},
+                                   ${{ cart.get_total_price }}
                                 </a>
-                            {#% else %}
+                            {% else %}
                                 Your cart is empty.
-                            {#% endif %}
+                            {% endif %}
                             </span>
-                        {#% endwith %}
+                        {% endwith %}
                         </button>
                     </form>
-                -->
                 </div>
             </div>
         </nav>
